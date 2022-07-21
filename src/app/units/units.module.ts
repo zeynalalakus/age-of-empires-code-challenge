@@ -5,6 +5,9 @@ import { UnitsListComponent } from './units-list/units-list.component';
 import { UnitsComponent } from './units/units.component';
 import { UnitsDetailComponent } from './units-detail/units-detail.component';
 import {UnitsRoutingModule} from "./units-routing.module";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 
@@ -17,7 +20,10 @@ import {UnitsRoutingModule} from "./units-routing.module";
   ],
   imports: [
     CommonModule,
-    UnitsRoutingModule
+    UnitsRoutingModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class UnitsModule { }

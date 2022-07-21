@@ -1,0 +1,12 @@
+.img-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  box-shadow: 10px 10px 5px gray;
+  width: 75%;
+  height: auto;
+}

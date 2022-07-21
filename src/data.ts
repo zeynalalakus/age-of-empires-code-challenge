@@ -1,4 +1,4 @@
-{
+export const ageOfEmpiresData = {
   "units": [
     {
       "id": 1,

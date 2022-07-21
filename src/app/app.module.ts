@@ -21,8 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
   ],
   imports: [
     BrowserModule,
-    UnitsModule,
     AppRoutingModule,
+    UnitsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
