@@ -1,5 +1,5 @@
 <div class="list-container mat-elevation-z1">
-  <mat-table [dataSource]="dataSource" matSort (matSortChange)="onSortChange($event)">
+  <mat-table [dataSource]="dataSource" matSort>
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
@@ -31,11 +31,11 @@
       </mat-cell>
     </ng-container>
 
-    <!-- Actions Column -->
-    <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+    <!-- Details Column -->
+    <ng-container matColumnDef="detail">
+      <mat-header-cell *matHeaderCellDef> Details</mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <button mat-mini-fab aria-label="go to details" (click)="navigateToDetail(row)">
+        <button mat-mini-fab aria-label="go to details" [routerLink]="['/units/detail/' + row.id]">
           <mat-icon>forward</mat-icon>
         </button>
       </mat-cell>
@@ -50,7 +50,6 @@
     </tr>
   </mat-table>
 
-  <mat-paginator  *ngIf="units" [length]="units.length" [pageSize]="limit" [pageSizeOptions]="pageSizeOptions"
-                  (page)="onPaginatorChange($event)" showFirstLastButtons aria-label="Select page of units"></mat-paginator>
+  <mat-paginator *ngIf="units" [pageSizeOptions]="pageSizeOptions" [length]="limit" showFirstLastButtons aria-label="Select page of units"></mat-paginator>
 </div>
 

@@ -20,6 +20,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -30,21 +31,22 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     UnitsComponent,
     UnitsDetailComponent
   ],
-  imports: [
-    CommonModule,
-    UnitsRoutingModule,
-    StoreModule.forFeature({name: Units_Store_Name, reducer: UnitsReducer}),
-    EffectsModule.forFeature([UnitsEffects]),
-    ReactiveFormsModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatButtonModule,
-    MatIconModule,
-    MatButtonToggleModule,
-    MatRadioModule,
-    MatSliderModule,
-    MatCheckboxModule
-  ]
+    imports: [
+        CommonModule,
+        UnitsRoutingModule,
+        StoreModule.forFeature({name: Units_Store_Name, reducer: UnitsReducer}),
+        EffectsModule.forFeature([UnitsEffects]),
+        ReactiveFormsModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonToggleModule,
+        MatRadioModule,
+        MatSliderModule,
+        MatCheckboxModule,
+        MatCardModule
+    ]
 })
 export class UnitsModule { }

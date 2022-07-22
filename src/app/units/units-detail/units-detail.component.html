@@ -1,1 +1,62 @@
-<p>units-detail works!</p>
+<div *ngIf="selectedUnit" class="detail-container">
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>ID: </span>{{selectedUnit.id}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Name: </span>{{selectedUnit.name}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Description: </span>{{selectedUnit.description}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Min. Required Age: </span>{{selectedUnit.age}}</p>
+    </mat-card-content>
+  </mat-card> <mat-card class="card">
+  <mat-card-content>
+    <p><span>Wood Cost: </span>{{selectedUnit.cost?.Wood ?? '-'}}</p>
+  </mat-card-content>
+</mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Food Cost: </span>{{selectedUnit.cost?.Food ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Gold Cost: </span>{{selectedUnit.cost?.Gold ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Build Time: </span>{{selectedUnit.build_time ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Reload Time: </span>{{selectedUnit.reload_time ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Hit Points: </span>{{selectedUnit.hit_points}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Attack: </span>{{selectedUnit.attack ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+      <p><span>Accuracy: </span>{{selectedUnit.accuracy ?? '-'}}</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

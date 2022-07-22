@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {By} from "@angular/platform-browser";
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +10,8 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ NavbarComponent ],
+      imports: [MatToolbarModule]
     })
     .compileComponents();
 
@@ -19,5 +22,10 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should create router links', () => {
+    const buttons = fixture.debugElement.queryAll(By.css('button'));
+    expect(buttons[0].attributes['routerLink']).toBe('/home');
+    expect(buttons[1].attributes['routerLink']).toBe('/units');
   });
 });

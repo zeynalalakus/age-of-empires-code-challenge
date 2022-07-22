@@ -27,10 +27,6 @@ export class UnitsSearchComponent implements OnInit {
     })
   }
 
-  sendForm() {
-    console.log(this.searchForm.value);
-  }
-
   onCostSelectionChanged(cost: string, range: string) {
     const value = this.searchForm.controls[cost].value;
     if (value) {
