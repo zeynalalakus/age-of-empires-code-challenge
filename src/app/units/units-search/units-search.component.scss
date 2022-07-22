@@ -1,0 +1,42 @@
+.form-container {
+  margin: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+  gap: 2rem;
+}
+
+.mat-button-toggle-checked {
+  color: #ffffff;
+  background-color: #ff4081;
+}
+.mat-button-toggle {
+  width: 6rem;
+}
+
+.mat-checkbox {
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+mat-slider {
+  width: 30%;
+}
+
+mat-checkbox {
+  width: 5%;
+}
+.costs-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+.cost-container {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  align-items: center;
+}

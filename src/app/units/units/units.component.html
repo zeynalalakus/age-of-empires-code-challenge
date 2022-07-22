@@ -1,2 +1,2 @@
-<app-units-search></app-units-search>
-<app-units-list [units]="units"></app-units-list>
+<app-units-search (formChangeEmitter)="onFormValueChange($event)"></app-units-search>
+<app-units-list [units]="filteredUnits"></app-units-list>

@@ -4,10 +4,10 @@ import {HomeComponent} from "./main/home/home.component";
 import {PageNotFoundComponent} from "./main/page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'units', loadChildren: () => import('./units/units.module').then(m => m.UnitsModule)},
+  {path: 'home', component: HomeComponent, title: 'Home'},
+  {path: 'units', loadChildren: () => import('./units/units.module').then(m => m.UnitsModule), title: 'Units'},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent},
+  {path: '**', component: PageNotFoundComponent, title: 'Page not found'}
 ];
 
 @NgModule({

@@ -8,6 +8,18 @@ import {UnitsRoutingModule} from "./units-routing.module";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {StoreModule} from "@ngrx/store";
+import {Units_Store_Name} from "./store/units.selectors";
+import {UnitsReducer} from "./store/units.reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {UnitsEffects} from "./store/units.effects";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 
@@ -21,9 +33,18 @@ import {MatPaginatorModule} from "@angular/material/paginator";
   imports: [
     CommonModule,
     UnitsRoutingModule,
+    StoreModule.forFeature({name: Units_Store_Name, reducer: UnitsReducer}),
+    EffectsModule.forFeature([UnitsEffects]),
+    ReactiveFormsModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatCheckboxModule
   ]
 })
 export class UnitsModule { }

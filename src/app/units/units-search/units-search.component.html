@@ -1,1 +1,57 @@
-<p>units-search works!</p>
+<div class="form-container" [formGroup]="searchForm">
+  <div>
+    <h3>Ages</h3>
+    <mat-button-toggle-group formControlName="ages" name="ages" aria-label="Ages" multiple>
+      <mat-button-toggle value="all">All</mat-button-toggle>
+      <mat-button-toggle value="dark">Dark</mat-button-toggle>
+      <mat-button-toggle value="feudal">Feudal</mat-button-toggle>
+      <mat-button-toggle value="castle">Castle</mat-button-toggle>
+      <mat-button-toggle value="imperial">Imperial</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div>
+    <h3>Costs</h3>
+    <div class="costs-container">
+      <div>
+        <mat-checkbox formControlName="wood"
+                      (change)="onCostSelectionChanged('wood', 'woodRange')"
+        >Wood</mat-checkbox>
+        <mat-slider
+          formControlName="woodRange"
+          thumbLabel
+          step="1"
+          min="0"
+          max="200"
+          aria-label="wood"
+        ></mat-slider>
+        <span>({{searchForm.controls['woodRange'].value}})</span>
+      </div>
+      <div>
+        <mat-checkbox formControlName="food"
+                      (change)="onCostSelectionChanged('food', 'foodRange')">Food</mat-checkbox>
+        <mat-slider
+          formControlName="foodRange"
+          thumbLabel
+          step="1"
+          min="0"
+          max="200"
+          aria-label="food"
+        ></mat-slider>
+        <span>({{searchForm.controls['foodRange'].value}})</span>
+      </div>
+      <div>
+        <mat-checkbox formControlName="gold"
+                      (change)="onCostSelectionChanged('gold', 'goldRange')">Gold</mat-checkbox>
+        <mat-slider
+          formControlName="goldRange"
+          thumbLabel
+          step="1"
+          min="0"
+          max="200"
+          aria-label="gold"
+        ></mat-slider>
+        <span>({{searchForm.controls['goldRange'].value}})</span>
+      </div>
+    </div>
+  </div>
+</div>

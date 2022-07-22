@@ -11,6 +11,12 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import {TitleStrategy} from "@angular/router";
+import {CustomTitleStrategyService} from "./shared/services/custom-title-strategy.service";
 
 @NgModule({
   declarations: [
@@ -26,9 +32,14 @@ import {MatIconModule} from "@angular/material/icon";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [],
+  providers: [
+    {provide: TitleStrategy, useClass: CustomTitleStrategyService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
