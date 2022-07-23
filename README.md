@@ -1,6 +1,33 @@
-# AgeOfEmpiresCodeChallenge
+# Age of Empires
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+This is a code-challenge project to list all the units in the Age of Empires and present the details of any of them.
+This project was generated with Angular CLI version 14.0.3.
+
+## Pages
+
+### Home Page
+
+This is the basic home page of this project.
+
+![Screenshot](./src/assets/images/screenshots/1.png)
+
+### Units List Page
+
+This is the page used to list the units and filter them by ages or costs simultaneously. To see the details of any unit, just click on the row of a unit.
+
+![Screenshot](./src/assets/images/screenshots/2.png)
+![Screenshot](./src/assets/images/screenshots/3.png)
+
+### Units Detail Page
+
+This is the detail page of the selected unit. It presents the following details: id, name, description, minimum required age, wood cost, food cost, gold cost, build time, reload time, hit points, attack, accuracy.
+
+![Screenshot](./src/assets/images/screenshots/4.png)
+
+### "Page Not Found" Page
+
+This is the page when user tries to navigate to an undefined route.
+![Screenshot](./src/assets/images/screenshots/5.png)
 
 ## Development server
 
