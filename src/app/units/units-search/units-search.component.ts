@@ -1,15 +1,20 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-units-search',
   templateUrl: './units-search.component.html',
   styleUrls: ['./units-search.component.scss']
 })
-export class UnitsSearchComponent implements OnInit {
+export class UnitsSearchComponent implements OnInit, OnDestroy {
   searchForm: FormGroup;
+  // this is the eventEmitter used to emit form changes to parent component
   @Output() formChangeEmitter = new EventEmitter<any>();
+  formSubscription!: Subscription;
   constructor() {
+    // search form is a typed form
+    // we do not need a resetting functionality but if we reset the form, controls will not be null, instead they will take initial values like ['all'], 0 ...
     this.searchForm = new FormGroup<ISearchForm>({
       ages: new FormControl<string[]>(['all'], {nonNullable: true}),
       wood: new FormControl<boolean>(false, {nonNullable: true}),
@@ -22,11 +27,15 @@ export class UnitsSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchForm.valueChanges.subscribe(form => {
+    // subscribing to form changes in order to emit updated form to parent component
+    this.formSubscription = this.searchForm.valueChanges.subscribe(form => {
       this.formChangeEmitter.emit(form);
     })
   }
 
+  // this is used to enable or disable range controls based on whether cost checkboxes are checked or not
+  // using cost name to check it is true or false
+  // using range to find the cost's range to make it enabled or disabled
   onCostSelectionChanged(cost: string, range: string) {
     const value = this.searchForm.controls[cost].value;
     if (value) {
@@ -35,8 +44,13 @@ export class UnitsSearchComponent implements OnInit {
       this.searchForm.controls[range].disable();
     }
   }
+
+  ngOnDestroy() {
+    this.formSubscription.unsubscribe();
+  }
 }
 
+// this is the interface used for searchForm type
 interface ISearchForm {
   ages: FormControl<string[]>,
   wood: FormControl<boolean>,

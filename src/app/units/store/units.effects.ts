@@ -7,6 +7,8 @@ import {catchError, EMPTY, map, mergeMap} from "rxjs";
 @Injectable()
 export class UnitsEffects {
 
+  // this is effect used to load units
+  // after loading units, it returns loadUnitsSuccessful action which will load units to the store
   loadUnits$ = createEffect(() => this.actions$.pipe(
     ofType(unitsActions.loadUnits),
     mergeMap(() => this.unitsService.getAllUnits().pipe(

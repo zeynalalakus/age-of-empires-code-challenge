@@ -21,6 +21,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
+import {FlexModule} from "@angular/flex-layout";
 
 
 
@@ -46,7 +47,8 @@ import {MatCardModule} from "@angular/material/card";
         MatRadioModule,
         MatSliderModule,
         MatCheckboxModule,
-        MatCardModule
+        MatCardModule,
+        FlexModule
     ]
 })
 export class UnitsModule { }

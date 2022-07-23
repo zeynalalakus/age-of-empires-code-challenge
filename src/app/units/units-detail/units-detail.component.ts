@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {ActivatedRoute} from "@angular/router";
-import {map, mergeMap} from "rxjs";
+import {map, mergeMap, Subscription} from "rxjs";
 import {unitsStateSelector} from "../store/units.selectors";
 import {Unit} from "../../shared/models/unit";
 import * as unitsActions from '../store/units.actions';
@@ -10,19 +10,17 @@ import * as unitsActions from '../store/units.actions';
   templateUrl: './units-detail.component.html',
   styleUrls: ['./units-detail.component.scss']
 })
-export class UnitsDetailComponent implements OnInit {
+export class UnitsDetailComponent implements OnInit, OnDestroy {
   selectedUnit!: Unit | null;
-  displayedProperties = [
-    {property: 'id', label: 'ID'}, {property: 'name', label: 'Name'},
-    {property: 'description', label: 'Description'}, {property: 'age', label: 'Min. Required Age'},
-    {property: 'cost.Wood', label: 'Wood Cost'}, {property: 'cost.Food', label: 'Food'},
-    {property: 'cost.Gold', label: 'Gold Cost'}, {property: 'build_time', label: 'Build Time'}
-  ]
+  unitsSub!: Subscription;
   constructor(private store: Store, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.route.params.pipe(
+    // taking id from the route and checking store if units are loaded or not
+    // if units are loaded, taking the filtered (by id) unit and assigning it to the selectedUnit
+    // if units are not loaded, dispatching loadUnits so that store will be changed so this observer will get new state
+    this.unitsSub = this.route.params.pipe(
       mergeMap(params => this.store.select(unitsStateSelector).pipe(
         map(state => ({unit: state.units.find(unit => unit.id === +params['id']), areUnitsLoaded: state.loaded}))
       ))
@@ -33,6 +31,10 @@ export class UnitsDetailComponent implements OnInit {
         this.store.dispatch(unitsActions.loadUnits());
       }
     })
+  }
+
+  ngOnDestroy() {
+    this.unitsSub.unsubscribe();
   }
 
 }

@@ -11,7 +11,7 @@ const initialState: UnitsState = {
   units: [],
   loaded: false
 }
-
+// two reducers. One is for loading, the other one is for setting default values
 export const UnitsReducer = createReducer(
   initialState,
   on(unitsActions.loadUnitsSuccessful, (state, action) => ({...state, units: action.units, loaded: true})),

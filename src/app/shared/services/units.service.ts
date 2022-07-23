@@ -7,6 +7,7 @@ import {ageOfEmpiresData} from "../../../data";
   providedIn: "root"
 })
 export class UnitsService {
+  // this is unit service function to get all units from the data
   getAllUnits(): Observable<Unit[]> {
     return of(ageOfEmpiresData.units);
   }

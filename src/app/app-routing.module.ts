@@ -11,6 +11,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  // preloading all modules because we have only one module and user will not wait longer to go to that module
+  // so no need to load when user clicks
   imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })

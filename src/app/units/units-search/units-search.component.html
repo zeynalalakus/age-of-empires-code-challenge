@@ -12,7 +12,7 @@
   <div>
     <h3>Costs</h3>
     <div class="costs-container">
-      <div>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
         <mat-checkbox formControlName="wood"
                       (change)="onCostSelectionChanged('wood', 'woodRange')"
         >Wood</mat-checkbox>
@@ -26,7 +26,7 @@
         ></mat-slider>
         <span>({{searchForm.controls['woodRange'].value}})</span>
       </div>
-      <div>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
         <mat-checkbox formControlName="food"
                       (change)="onCostSelectionChanged('food', 'foodRange')">Food</mat-checkbox>
         <mat-slider
@@ -39,7 +39,7 @@
         ></mat-slider>
         <span>({{searchForm.controls['foodRange'].value}})</span>
       </div>
-      <div>
+      <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
         <mat-checkbox formControlName="gold"
                       (change)="onCostSelectionChanged('gold', 'goldRange')">Gold</mat-checkbox>
         <mat-slider

@@ -6,6 +6,7 @@ import {TitleResolverService} from "../shared/services/title-resolver.service";
 
 const routes: Routes = [
   {path: '', component: UnitsComponent},
+  // using titleResolverService to use id in the title
   {path: 'detail/:id', component: UnitsDetailComponent, title: TitleResolverService}
 ];
 

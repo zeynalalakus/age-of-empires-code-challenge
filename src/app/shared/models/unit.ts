@@ -1,3 +1,7 @@
+
+// unit model
+// some fields are optional
+// optional fields are marked based on all units
 export interface Unit {
   id: number,
   name: string,

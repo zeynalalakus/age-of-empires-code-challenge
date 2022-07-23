@@ -1,62 +1,124 @@
 <div *ngIf="selectedUnit" class="detail-container">
   <mat-card class="card">
     <mat-card-content>
-      <p><span>ID: </span>{{selectedUnit.id}}</p>
+      <div class="property-title-container">
+        <p class="property-title">ID: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.id}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Name: </span>{{selectedUnit.name}}</p>
+      <div class="property-title-container">
+        <p class="property-title">Name: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.name}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Description: </span>{{selectedUnit.description}}</p>
+      <div class="property-title-container">
+        <p class="property-title">Description: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.description}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Min. Required Age: </span>{{selectedUnit.age}}</p>
-    </mat-card-content>
-  </mat-card> <mat-card class="card">
-  <mat-card-content>
-    <p><span>Wood Cost: </span>{{selectedUnit.cost?.Wood ?? '-'}}</p>
-  </mat-card-content>
-</mat-card>
-  <mat-card class="card">
-    <mat-card-content>
-      <p><span>Food Cost: </span>{{selectedUnit.cost?.Food ?? '-'}}</p>
+      <div class="property-title-container">
+        <p class="property-title">Min. Required Age: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.age}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Gold Cost: </span>{{selectedUnit.cost?.Gold ?? '-'}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Wood Cost: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.cost?.Wood ?? '-'}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Build Time: </span>{{selectedUnit.build_time ?? '-'}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Food Cost: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.cost?.Food ?? '-'}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Reload Time: </span>{{selectedUnit.reload_time ?? '-'}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Gold Cost: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.cost?.Gold ?? '-'}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Hit Points: </span>{{selectedUnit.hit_points}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Build Time: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.build_time ?? '-'}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Attack: </span>{{selectedUnit.attack ?? '-'}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Reload Time: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.reload_time ?? '-'}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
     <mat-card-content>
-      <p><span>Accuracy: </span>{{selectedUnit.accuracy ?? '-'}}</p>
+        <div class="property-title-container">
+        <p class="property-title">Hit Points: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.hit_points}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
-
+  <mat-card class="card">
+    <mat-card-content>
+        <div class="property-title-container">
+        <p class="property-title">Attack: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.attack ?? '-'}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-content>
+        <div class="property-title-container">
+        <p class="property-title">Accuracy: </p>
+      </div>
+      <div class="property-value-container">
+        <p class="property-value">{{selectedUnit.accuracy ?? '-'}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
+<button mat-raised-button color="primary" routerLink="/units">Back to List</button>
+
