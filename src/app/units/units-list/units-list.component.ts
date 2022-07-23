@@ -8,6 +8,7 @@ import {MatSort} from "@angular/material/sort";
   selector: 'app-units-list',
   templateUrl: './units-list.component.html',
   styleUrls: ['./units-list.component.scss'],
+  // to leave this component out of change detection unless input is changed
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UnitsListComponent implements OnInit, AfterViewInit, OnChanges {
