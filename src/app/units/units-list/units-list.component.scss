@@ -5,6 +5,9 @@ mat-table {
 }
 .list-container {
   padding: 2rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+  min-width: 300px;
 }
 
 mat-cell, mat-header-cell {
@@ -29,7 +32,7 @@ mat-header-row {
  background: lighten($primary-color, 25);
 }
 .mat-row, .mat-header-row {
-  min-width: 700px;
+  min-width: 600px;
   width: 100%;
 }
 

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Subscription} from "rxjs";
 
@@ -12,6 +12,12 @@ export class UnitsSearchComponent implements OnInit, OnDestroy {
   // this is the eventEmitter used to emit form changes to parent component
   @Output() formChangeEmitter = new EventEmitter<any>();
   formSubscription!: Subscription;
+  // screen width will be used to make mat-button-toggle-group vertical if it is below 550
+  public screenWidth: any;
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.screenWidth = window.innerWidth;
+  }
   constructor() {
     // search form is a typed form
     // we do not need a resetting functionality but if we reset the form, controls will not be null, instead they will take initial values like ['all'], 0 ...
@@ -27,6 +33,7 @@ export class UnitsSearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
     // subscribing to form changes in order to emit updated form to parent component
     this.formSubscription = this.searchForm.valueChanges.subscribe(form => {
       this.formChangeEmitter.emit(form);

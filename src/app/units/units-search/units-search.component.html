@@ -1,7 +1,7 @@
 <div class="form-container" [formGroup]="searchForm">
   <div>
     <h3>Ages</h3>
-    <mat-button-toggle-group formControlName="ages" name="ages" aria-label="Ages" multiple>
+    <mat-button-toggle-group formControlName="ages" name="ages" aria-label="Ages" multiple [vertical]="screenWidth < 550">
       <mat-button-toggle value="all">All</mat-button-toggle>
       <mat-button-toggle value="dark">Dark</mat-button-toggle>
       <mat-button-toggle value="feudal">Feudal</mat-button-toggle>
