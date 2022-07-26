@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
     },
     {
       label: 'Units',
-      icon: 'search',
+      icon: 'list',
       link: '/units'
     }
   ]
